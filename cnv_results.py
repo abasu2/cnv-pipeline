@@ -109,7 +109,7 @@ def create_images(image_dir, chromosome, genes, clusters, sample_name, filtered_
     for cluster in filter(on_chrom, clusters): # selects only clusters on chromosome
         fig = plt.figure(figsize=(16, 9))
         ax = fig.add_subplot(111)
-        for i, COLORS in zip(range(13), COLORS):
+        for i, color in zip(range(13), COLORS):
             ax.plot(filtered_pos[copy_number == i], 
                     filtered_depth[copy_number == i], 
                     color=color, marker='o', linestyle=' ', alpha=.2)
