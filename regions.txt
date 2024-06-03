@@ -1,16 +1,16 @@
 > format: type, name, chromosome, start, end
 gene, Ace1, 2L, 3438301, 3497400
-cluster, Ace1, 2L, 3400000, 3530000
+cluster, Ace1, 2L, 3300000, 3630000
 gene, Vgsc, 2L, 2358158, 2431617
-cluster, Vgsc, 2L, 2300000, 2500000
+cluster, Vgsc, 2L, 2200000, 2600000
 gene, Rdl, 2L, 25363652, 25434556
-cluster, Rdl, 2L, 25300000, 25500000
+cluster, Rdl, 2L, 25100000, 25600000
 gene, Coeae2g, 2L, 37282152, 37285191
 gene, Coeae3g, 2L, 37285915, 37288160
 gene, Coeae3h, 2L, 37288762, 37290797
 gene, Coeae5g, 2L, 37291002, 37292961
 gene, Coeae6g, 2L, 37292956, 37295490
-cluster, Coeae2g-Coeae6g, 2L, 37278000, 37300000
+cluster, Coeae2g-Coeae6g, 2L, 37250000, 37330000
 gene, Cyp6aa1, 2R, 28480576, 28482637
 gene, Cyp6aa2, 2R, 28483301, 28484921
 gene, Coeae60, 2R, 28485262, 28487080
