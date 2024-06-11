@@ -5,6 +5,9 @@ gene, Vgsc, 2L, 2358158, 2431617
 cluster, Vgsc, 2L, 2200000, 2600000
 gene, Rdl, 2L, 25363652, 25434556
 cluster, Rdl, 2L, 25100000, 25600000
+gene, Coeae1f, 2L, 28545396, 28547938
+gene, Coeae2f, 2L, 28548433, 28550748
+cluster, Coeae1f-Coeae2f, 2L, 28538000, 28558000
 gene, Coeae2g, 2L, 37282152, 37285191
 gene, Coeae3g, 2L, 37285915, 37288160
 gene, Coeae3h, 2L, 37288762, 37290797

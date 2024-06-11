@@ -1,3 +1,10 @@
+"""
+This script reads copy number data from data files and writes the copy number for genes of interest to a CSV file.
+
+This script requires a text file containing the genes of interest and CNV data files.
+"""
+
+
 import argparse
 import numpy as np
 from numpy import lib

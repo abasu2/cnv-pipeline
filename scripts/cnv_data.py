@@ -1,3 +1,9 @@
+"""
+This script writes copy number data across an entire genome to a series of .npz files.
+
+This script requires a FASTA reference genome file, the windowed accessibility, and a BAM alignment file.
+"""
+
 import argparse
 import numpy as np
 import numpy.lib.recfunctions
@@ -20,7 +26,7 @@ def append_reference_gc(whole_coverage, fasta):
     field representing the reference %GC.
     fasta: A pysam.FastaFile object representing the reference genome
     returns: None
-    modifies: whole_coverage.
+    modifies: whole_coverage
     """
     for chromosome in GENOME:
         fasta_gc = np.empty(len(whole_coverage[chromosome]), dtype='u1') # %GC content in the reference sequence in each window.
@@ -103,16 +109,19 @@ def append_filter(whole_coverage, whole_quality, mean_reads_by_gc):
         coverage_filter = np.logical_or(quality_filter, gc_filter)
         whole_coverage[chromosome] = np.lib.recfunctions.append_fields(whole_coverage[chromosome], "filtered", coverage_filter, dtypes='?', asrecarray=True, usemask=False)
 
-def fit_hmm(depth_normed,  # normalised coverage array 
-            transition_probability,  # probability of state transition
-            variance,  # variance per copy 
-            variance_fixed,  # variance for the zero copy number state 
-            max_copy_number=12,  # maximum copy number to consider in the model 
-            n_iter=0,  # number of iterations to perform when fitting the model
-            params='st',  # parameters that can be changed through fitting 
-            init_params=''  # parameters that are initialised from the data
-           ):
+def fit_hmm(depth_normed, transition_probability, variance, variance_fixed, max_copy_number=12, n_iter=0, params='st', init_params=''):
+    """
+    Predicts copy number states using a HMM.
     
+    depth_normed: A list of normalized coverage values.
+    transition_probability: The probability of a state transition to any state other than the current.
+    variance: The variance of the normalized coverage, per copy.
+    variance_fixed: The variance to be used for the zero copy number state.
+    n_iter: The number of iterations to perform when fitting the model
+    params: Parameters to the model that can be changed through fitting
+    init_params: Parameters to the model that are initialized from the data.
+    returns: A list containing the predicted copy number state.
+    """
     # convenience variable
     min_copy_number = 0  # minimum copy number to consider in the model
     n_states = max_copy_number - min_copy_number + 1
